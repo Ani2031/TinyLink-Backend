@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://tinylink-frontend-z99d.onrender.com"],
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -31,7 +31,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("DB connected!");
-    return sequelize.sync(); // creates table automatically
+    return sequelize.sync();
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
